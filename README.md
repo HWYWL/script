@@ -35,10 +35,9 @@
 	-没有安全认证，容易泄密
 
 ## 感谢
-[layui][1] 
-[1]: http://www.layui.com/
-[hutool][2] 
-[2]: http://www.hutool.cn/
+[layui](http://www.layui.com/)
+
+[hutool](http://www.hutool.cn/)
 ## 问题建议
 	- 提Issues 
 	- 联系我的邮箱：ilovey_hwy@163.com
