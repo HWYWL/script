@@ -41,6 +41,10 @@
             <i class="layui-icon">&#xe640;</i>删除</a>
     </script>
 </div>
+<div class="center-button">
+    <button class="layui-btn layui-btn layui-btn-sm" lay-submit lay-filter="addScript">
+        <i class="layui-icon">&#xe608;</i>添加脚本</button>
+</div>
 
 
 <script src="/layui/layui.js" charset="utf-8"></script>

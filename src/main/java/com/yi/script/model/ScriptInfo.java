@@ -152,4 +152,21 @@ public class ScriptInfo implements Serializable {
     public void setCommand(String command) {
         this.command = command;
     }
+
+    @Override
+    public String toString() {
+        return "ScriptInfo{" +
+                "id=" + id +
+                ", path='" + path + '\'' +
+                ", command='" + command + '\'' +
+                ", type=" + type +
+                ", remark='" + remark + '\'' +
+                ", enable=" + enable +
+                ", host='" + host + '\'' +
+                ", userName='" + userName + '\'' +
+                ", passWord='" + passWord + '\'' +
+                ", del=" + del +
+                ", crttime=" + crttime +
+                '}';
+    }
 }

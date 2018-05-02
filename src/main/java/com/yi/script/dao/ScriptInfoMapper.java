@@ -5,6 +5,11 @@ import com.yi.script.model.ScriptInfoExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+/**
+ * 操作脚本数据库
+ * @author YI
+ * @date 2018-5-2 09:22:38
+ */
 public interface ScriptInfoMapper {
     long countByExample(ScriptInfoExample example);
 

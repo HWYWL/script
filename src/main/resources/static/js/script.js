@@ -15,8 +15,8 @@ function initTable() {
             ,url:'/fidnAllScript'
             ,cellMinWidth: 20 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
             ,cols: [[
-                {field:'command', title: '脚本路径'}
-                ,{field:'path', title: '命令'} //width 支持：数字、百分比和不填写。你还可以通过 minWidth 参数局部定义当前单元格的最小宽度，layui 2.2.1 新增
+                {field:'path', title: '脚本路径'}
+                ,{field:'command', title: '命令'} //width 支持：数字、百分比和不填写。你还可以通过 minWidth 参数局部定义当前单元格的最小宽度，layui 2.2.1 新增
                 ,{field:'remark', title: '备注'}
                 ,{field:'type', title: '脚本类型', templet: '#titleTpl', unresize: true}
                 ,{field:'enable'+' checked', title: '是否有效', templet: '#switchTpl', unresize: true}
@@ -112,6 +112,22 @@ function initTable() {
             setTimeout(function(){
                 layer.msg('修改成功!',{icon:1});
             },2000);
+        });
+
+        form.on('submit(addScript)', function(){
+            layer.open({
+                type: 2,
+                title: '添加脚本',
+                shadeClose: true,
+                shade: 0.8,
+                area: ['50%', '90%'],
+                about:true,
+
+                content: '/addScript'
+            });
+
+            //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+            // return false;
         });
     });
 }

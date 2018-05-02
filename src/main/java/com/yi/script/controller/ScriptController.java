@@ -46,6 +46,15 @@ public class ScriptController {
     }
 
     /**
+     * 打开添加脚本页面
+     * @return
+     */
+    @RequestMapping("/addScript")
+    public String addScript(){
+        return "script/addScript";
+    }
+
+    /**
      * 获取所有脚本数据
      * @return
      */
@@ -160,6 +169,11 @@ public class ScriptController {
     }
 
 
+    /**
+     * 执行脚本
+     * @param id
+     * @return
+     */
     @RequestMapping(value = "/execute", method = RequestMethod.GET)
     @ResponseBody
     public ModelAndView execute(Long id){
@@ -193,5 +207,26 @@ public class ScriptController {
         modelAndView.addObject("message", message);
 
         return modelAndView;
+    }
+
+    @RequestMapping("/save")
+    @ResponseBody
+    public Message save(@RequestBody ScriptInfo scriptInfo){
+        Message message = new Message();
+        try {
+            if (scriptInfo != null && scriptInfo.getType() == Script.YELLO.getValue()){
+                scriptInfo.setCommand(scriptInfo.getCommand().replace("\\", "/"));
+                scriptInfo.setPath(scriptInfo.getPath().replace("\\", "/"));
+            }
+
+            scriptInfoService.insertSelective(scriptInfo);
+            message.setMsg("数据提交成功!");
+        }catch (Exception e){
+            message.setMsg("保存失败！");
+            message.setData(e.getMessage());
+            message.setCode(-1);
+        }
+
+        return message;
     }
 }

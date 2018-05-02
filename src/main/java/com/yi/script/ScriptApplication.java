@@ -12,7 +12,6 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
  */
 @SpringBootApplication
 @MapperScan(basePackages = {"com.yi.script.dao"})
-@ServletComponentScan(basePackages = {"com.yi.script.**"})
 public class ScriptApplication {
 
 	public static void main(String[] args) {
