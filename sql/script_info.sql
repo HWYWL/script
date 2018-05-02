@@ -43,5 +43,5 @@ INSERT INTO `script_info` VALUES ('3', 'I:/Program Files/elasticsearch-5.5.2-noe
 INSERT INTO `script_info` VALUES ('4', 'H:/Program Files/elasticsearch-5.5.2-noed2/inelasticsearch.bat', 'H:/Program Files/elasticsearch-5.5.2-noed2/inelasticsearch.bat', '3', 'elasticsearch-5.5.2-noed2启动脚本', '0', null, null, null, '0', '2018-04-27 17:25:07');
 INSERT INTO `script_info` VALUES ('5', 'H:/Program Files/elasticsearch-5.5.2-noed3/inelasticsearch.bat', 'H:/Program Files/elasticsearch-5.5.2-noed3/inelasticsearch.bat', '3', 'elasticsearch-5.5.2-noed3启动脚本', '0', null, null, null, '0', '2018-04-27 17:25:18');
 INSERT INTO `script_info` VALUES ('6', null, 'ipconfig', '2', '查看IP地址', '0', null, null, null, '0', '2018-04-30 23:29:58');
-INSERT INTO `script_info` VALUES ('7', null, 'ifconfig', '0', '查看IP地址', '0', '111.230.10.220', 'root', '123456yi', '0', '2018-05-01 00:19:10');
-INSERT INTO `script_info` VALUES ('8', '/home/yi/software/tale/tale-cli', 'cd /home/yi/software/tale && ./tale-cli status', '1', '查看Tale博客状态', '0', '111.230.10.220', 'root', '123456yi', '0', '2018-05-01 00:42:46');
+INSERT INTO `script_info` VALUES ('7', null, 'ifconfig', '0', '查看IP地址', '0', '111.230.10.220', 'root', '123456', '0', '2018-05-01 00:19:10');
+INSERT INTO `script_info` VALUES ('8', '/home/yi/software/tale/tale-cli', 'cd /home/yi/software/tale && ./tale-cli status', '1', '查看Tale博客状态', '0', '111.230.10.220', 'root', '123456', '0', '2018-05-01 00:42:46');
