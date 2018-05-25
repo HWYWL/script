@@ -229,4 +229,20 @@ public class ScriptController {
 
         return message;
     }
+
+    @RequestMapping(value = "/updata", method = RequestMethod.POST)
+    @ResponseBody
+    public Message updata(@RequestBody ScriptInfo scriptInfo){
+        Message message = new Message();
+        try {
+            scriptInfoService.updateByPrimaryKeySelective(scriptInfo);
+            message.setMsg("状态更改成功!");
+        }catch (Exception e){
+            message.setMsg("状态更改失败！");
+            message.setData(e.getMessage());
+            message.setCode(-1);
+        }
+
+        return message;
+    }
 }

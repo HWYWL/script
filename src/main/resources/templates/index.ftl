@@ -28,7 +28,7 @@
 <#--表单-->
     <table class="layui-hide" id="scriptTable" lay-filter="useruv"></table>
     <script type="text/html" id="switchTpl">
-        <input type="checkbox" checked name="enable" lay-skin="switch" lay-text="生效|失效" lay-filter="switchEnable">
+        <input type="checkbox" value="{{d.id}}" lay-filter="switchEnable" lay-skin="switch" lay-text="生效|失效" {{ d.enable == 0 ? 'checked' : '' }}>
     </script>
 
 <#--按键-->

@@ -108,10 +108,7 @@ function initTable() {
 
         //监听是否有效按钮
         form.on('switch(switchEnable)', function(obj){
-            layer.load(0,{time: 2*1000});
-            setTimeout(function(){
-                layer.msg('修改成功!',{icon:1});
-            },2000);
+            updateStatus(obj);
         });
 
         form.on('submit(addScript)', function(){
@@ -129,6 +126,31 @@ function initTable() {
             //阻止表单跳转。如果需要表单跳转，去掉这段即可。
             // return false;
         });
+    });
+}
+
+//更改状态
+function updateStatus(obj){
+    layer.load(1,{time: 2*1000});
+    var newStatus = obj.elem.checked?0:-1;
+    var id = obj.elem.value;
+    var scriptInfo = '{"id":"'+id+'",'+'"enable":"'+newStatus+'"}';
+    $.ajax({
+        url: "/updata",
+        type: "POST",
+        data : scriptInfo,
+        async : false,
+        dataType : "json",
+        contentType: "application/json",
+        success: function(data){
+            layer.closeAll('loading');
+            if(data.code==0){
+                layer.msg(data.msg,{icon: 1});
+            }else{
+                layer.msg(data.msg,{icon: 2});
+            }
+        }
+
     });
 }
 

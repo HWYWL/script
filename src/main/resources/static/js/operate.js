@@ -11,13 +11,6 @@ layui.config({
         var form = layui.form
             ,$ = layui.jquery;
 
-        //监听指定开关
-        form.on('switch(switchEnable)', function(data){
-            layer.msg('开关：'+ (this.checked ? '已打开' : '关闭'), {
-                offset: '6px'
-            });
-        });
-
         //监听提交
         form.on('submit(submitScript)', function(data){
             if (data.field.enable == "on"){
