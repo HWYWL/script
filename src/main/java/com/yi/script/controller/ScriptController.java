@@ -129,7 +129,6 @@ public class ScriptController {
         if (scriptInfoList != null && scriptInfoList.size() > 0){
             ScriptInfo scriptInfo = scriptInfoList.get(0);
             Byte type = scriptInfo.getType();
-
             try {
                 //读取读命令
                 if (Script.RED.getValue() == type || Script.BLANK.getValue() == type){
@@ -188,16 +187,22 @@ public class ScriptController {
         try {
             List<ScriptInfo> scriptInfoList = scriptInfoService.selectByExample(scriptInfoExample);
             ScriptInfo scriptInfo = scriptInfoList.get(0);
-            Byte type = scriptInfo.getType();
-            String str = null;
-            if (Script.BLANK.getValue() == type || Script.YELLO.getValue() == type){
-                str = RuntimeUtil.execForStr(scriptInfoList.get(0).getCommand());
-            }else {
-                Session session = JschUtil.getSession(scriptInfo.getHost(), PORT, scriptInfo.getUserName(), scriptInfo.getPassWord());
-                str = JschUtil.exec(session, scriptInfo.getCommand(), CharsetUtil.CHARSET_UTF_8);
-            }
+            if (scriptInfo != null && scriptInfo.getEnable() == 0) {
+                Byte type = scriptInfo.getType();
+                String str = null;
+                if (Script.BLANK.getValue() == type || Script.YELLO.getValue() == type) {
+                    str = RuntimeUtil.execForStr(scriptInfoList.get(0).getCommand());
+                } else {
+                    Session session = JschUtil.getSession(scriptInfo.getHost(), PORT, scriptInfo.getUserName(), scriptInfo.getPassWord());
+                    str = JschUtil.exec(session, scriptInfo.getCommand(), CharsetUtil.CHARSET_UTF_8);
+                }
 
-            message.setData(str);
+                message.setData(str);
+            }else {
+                message.setMsg("已失效,请关闭失效开关再执行！");
+                message.setData(scriptInfo);
+                message.setCode(-1);
+            }
         }catch (Exception e){
             message.setMsg("执行失败！");
             message.setData(e.getMessage());
