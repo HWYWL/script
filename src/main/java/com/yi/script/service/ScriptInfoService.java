@@ -11,23 +11,9 @@ import java.util.List;
  * @date 2018-4-27 16:00:59
  */
 public interface ScriptInfoService {
-    long countByExample(ScriptInfoExample example);
-
-    int deleteByExample(ScriptInfoExample example);
-
-    int deleteByPrimaryKey(Long id);
-
-    int insert(ScriptInfo record);
-
     int insertSelective(ScriptInfo record);
 
     List<ScriptInfo> selectByExample(ScriptInfoExample example);
-
-    ScriptInfo selectByPrimaryKey(Long id);
-
-    int updateByExampleSelective(ScriptInfo record, ScriptInfoExample example);
-
-    int updateByExample(ScriptInfo record, ScriptInfoExample example);
 
     int updateByPrimaryKeySelective(ScriptInfo record);
 
