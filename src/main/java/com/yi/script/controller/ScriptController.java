@@ -5,14 +5,12 @@ import cn.hutool.core.util.CharsetUtil;
 import cn.hutool.core.util.RuntimeUtil;
 import cn.hutool.extra.ssh.JschUtil;
 import com.jcraft.jsch.Session;
-import com.sshtools.j2ssh.sftp.FileAttributes;
 import com.yi.script.model.Message;
 import com.yi.script.model.Script;
 import com.yi.script.model.ScriptInfo;
 import com.yi.script.model.ScriptInfoExample;
 import com.yi.script.model.ScriptInfoExample.Criteria;
 import com.yi.script.service.ScriptInfoService;
-import com.yi.script.utils.SshGetFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,12 +35,21 @@ public class ScriptController {
     private static final int PORT = 22;
 
     /**
-     * 主页
+     * 主机页
      * @return
      */
     @RequestMapping("/")
     public String index(){
         return "index";
+    }
+
+    /**
+     * 脚本页
+     * @return
+     */
+    @RequestMapping("/scriptHome")
+    public String scriptHome(){
+        return "scriptHome";
     }
 
     /**
@@ -189,7 +196,7 @@ public class ScriptController {
             ScriptInfo scriptInfo = scriptInfoList.get(0);
             if (scriptInfo != null && scriptInfo.getEnable() == 0) {
                 Byte type = scriptInfo.getType();
-                String str = null;
+                String str;
                 if (Script.BLANK.getValue() == type || Script.YELLO.getValue() == type) {
                     str = RuntimeUtil.execForStr(scriptInfoList.get(0).getCommand());
                 } else {

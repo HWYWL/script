@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>主机管理</title>
+    <title>脚本管理</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -12,8 +12,8 @@
 </head>
 <body>
 <ul class="layui-nav" lay-filter="">
-    <li class="layui-nav-item layui-this"><a href="/">主机</a></li>
-    <li class="layui-nav-item"><a href="/scriptHome">脚本</a></li>
+    <li class="layui-nav-item"><a href="/">主机</a></li>
+    <li class="layui-nav-item layui-this"><a href="/scriptHome">脚本</a></li>
 </ul>
 <div class="container">
     <div class="row clearfix">
